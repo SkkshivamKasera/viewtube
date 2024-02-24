@@ -8,7 +8,7 @@ export const addComment = (videoID, commentText) => async (dispatch) => {
         const { data } = await axios.post(`${REQUEST_URL}/video/${videoID}/comment/add`, {
             commentText
         }, POST_CONFIG)
-        dispatch({ type: "ADD_COMMENT_SUCCESS", payload: data.message })
+        dispatch({ type: "ADD_COMMENT_SUCCESS", payload: data })
     }catch(error){
         dispatch({ type: "ADD_COMMENT_FAIL", payload: error.response ? error.response.data.message : error.message })
     }
@@ -32,7 +32,7 @@ export const replyToReplyesComment = (commentID, replyedCommentID, commentText) 
         const { data } = await axios.post(`${REQUEST_URL}/video/comment/${commentID}/replyed/${replyedCommentID}/reply`, {
             commentText
         }, POST_CONFIG)
-        dispatch({ type: "ADD_COMMENT_SUCCESS", payload: data.message })
+        dispatch({ type: "ADD_COMMENT_SUCCESS", payload: data })
     }catch(error){
         dispatch({ type: "ADD_COMMENT_FAIL", payload: error.response ? error.response.data.message : error.message })
     }

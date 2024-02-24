@@ -50,7 +50,7 @@ const WatchVideo = () => {
       dispatch(fetchVideoDetails(params.videoID));
       setIsSubscribing(false)
     }
-    if (!loadVideoDetails || !video) {
+    if (!loadVideoDetails) {
       dispatch(fetchVideoDetails(params.videoID))
       setLoadVideoDetails(!loadVideoDetails)
     }

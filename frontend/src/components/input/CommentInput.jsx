@@ -67,7 +67,7 @@ const CommentInput = ({ videoID, commentID, replyedCommentID, commentTo }) => {
             <button className='px-4 py-2 rounded-3xl cursor-pointer font-semibold bg-red-700 text-white' onClick={() => setCommentText('')}>
               cancel
             </button>
-            <button className='px-4 py-2 bg-green-700 rounded-3xl cursor-pointer font-semibold text-white' onClick={submitHandler}>
+            <button disabled={!commentText} className='px-4 py-2 bg-green-700 rounded-3xl cursor-pointer font-semibold text-white' onClick={submitHandler}>
               comment
             </button>
           </div>

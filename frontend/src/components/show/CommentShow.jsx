@@ -74,7 +74,7 @@ const CommentShow = ({
                         <div className='mt-2 flex items-center'>
                             <span className='flex items-center'>
                                 {
-                                    (likes && likes.length > 0) ? (
+                                    (likes && likes.length > 0 && likes.find((object)=>object===userID)) ? (
                                         <BiSolidLike
                                             className='mr-2 cursor-pointer'
                                             onClick={likeToCommentHandler}

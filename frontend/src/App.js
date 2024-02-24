@@ -10,7 +10,6 @@ import { fetchAllVideos } from "./redux/action/videoAction";
 
 function App() {
   const [activeSideDrawerLink, setActiveSideDrawerLink] = useState("home");
-  const [ loadVideoDetails, setLoadVideoDetails ] = useState(false)
 
   const [fetchAll, setFetchAll] = useState(false)
 
@@ -91,7 +90,7 @@ function App() {
           <SideDrawer drawerRef={drawerRef} activeSideDrawerLink={activeSideDrawerLink} setActiveSideDrawerLink={setActiveSideDrawerLink} activeSideDrawer={activeSideDrawer} />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route exact path="/video/watch/:videoID" element={<WatchVideo loadVideoDetails={loadVideoDetails} setLoadVideoDetails={setLoadVideoDetails} />} />
+            <Route exact path="/video/watch/:videoID" element={<WatchVideo />} />
             <Route exact path="/channel/me" element={<MyProfile />} />
             <Route exact path="/channel/user/:userID" element={<UserProfile />} />
             <Route exact path="/video/upload" element={<UploadVideoPage fetchAll={fetchAll} setFetchAll={setFetchAll} />} />

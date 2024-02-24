@@ -10,12 +10,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchVideoDetails, likeToVideo, updateView } from '../../redux/action/videoAction';
 import { subscribeOrUnsubscribeTheChannel } from '../../redux/action/channelAction';
 
-const WatchVideo = ({ loadVideoDetails, setLoadVideoDetails }) => {
+const WatchVideo = () => {
   const dispatch = useDispatch();
   const params = useParams();
 
   const [isSubscribing, setIsSubscribing] = useState(false)
   const [isView, setIsView] = useState(false)
+  const [loadVideoDetails, setLoadVideoDetails] = useState(false)
 
   const { video } = useSelector(state => state.videoDetails);
   const { user } = useSelector(state => state.user);
@@ -51,6 +52,7 @@ const WatchVideo = ({ loadVideoDetails, setLoadVideoDetails }) => {
     }
     if (!loadVideoDetails) {
       dispatch(fetchVideoDetails(params.videoID))
+      setLoadVideoDetails(!loadVideoDetails)
     }
   }, [dispatch, params.videoID, video, isSubscribing, loadVideoDetails]);
 

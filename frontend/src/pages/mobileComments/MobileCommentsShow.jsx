@@ -31,14 +31,22 @@ const MobileCommentsShow = () => {
                             ))
                         }
                         <div className='fixed bottom-0 w-full bg-white shadow-2xl shadow-black py-3 px-2'>
-                            <CommentInput 
+                            <CommentInput
                                 videoID={video._id}
                                 commentTo={"VIDEO"}
                             />
                         </div>
                     </div>
                 ) : (
-                    <div className={`w-full flex items-center justify-center text-red-700 text-xl min-h-[720px] font-bold`}>No Comments</div>
+                    <Fragment>
+                        <div className={`w-full flex items-center justify-center text-red-700 text-xl min-h-[720px] font-bold`}>No Comments</div>
+                        <div className='fixed bottom-0 w-full bg-white shadow-2xl shadow-black py-3 px-2'>
+                            <CommentInput
+                                videoID={video._id}
+                                commentTo={"VIDEO"}
+                            />
+                        </div>
+                    </Fragment>
                 )
             }
             <div className='hidden lg:flex flex-col items-center justify-center w-[100%] text-red-600 font-extrabold uppercase text-5xl mt-28'>

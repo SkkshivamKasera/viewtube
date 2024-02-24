@@ -60,7 +60,7 @@ const CommentShowOnMobile = ({
                     <div className='flex items-center'>
                         <span className='flex items-center'>
                             {
-                                (likes && likes.length > 0) ? (
+                                (likes && likes.length > 0 && likes.find((object) => object._id === userID)) ? (
                                     <BiSolidLike
                                         className='mr-2 cursor-pointer'
                                         onClick={likeToCommentHandler}
@@ -123,7 +123,7 @@ const CommentShowOnMobile = ({
                             <div className='flex items-center'>
                                 <span className='flex items-center'>
                                     {
-                                        (replyComment.likes && replyComment.likes.length > 0) ? (
+                                        (replyComment.likes && replyComment.likes.length > 0 && replyComment.likes.find((object) => object._id === userID)) ? (
                                             <BiSolidLike
                                                 className='mr-2 cursor-pointer'
                                                 onClick={()=>likeToReplyedCommentHandler(replyComment._id)}

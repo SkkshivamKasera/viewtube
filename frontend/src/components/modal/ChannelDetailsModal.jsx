@@ -36,7 +36,7 @@ const ChannelDetailsModal = ({ buttonRef, modalOpen, setModalOpen, user }) => {
     return (
         user && (
             <div className='fixed left-0 top-0 w-full h-full bg-black bg-opacity-50 z-20 flex items-center justify-center'>
-                <div ref={modalRef} className='bg-white w-1/2 rounded-lg shadow shadow-gray-500'>
+                <div ref={modalRef} className='bg-white w-full lg:w-1/2 rounded-lg shadow shadow-gray-500'>
                     <div className='p-4 flex items-center justify-between'>
                         <h1 className='text-2xl text-black font-bold capitalize'>About</h1>
                         <span onClick={() => setModalOpen(!modalOpen)} className='w-10 h-10 rounded-full active:bg-gray-200 flex items-center justify-center cursor-pointer'>

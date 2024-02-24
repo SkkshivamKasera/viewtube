@@ -51,9 +51,8 @@ const WatchVideo = ({ loadVideoDetails, setLoadVideoDetails }) => {
     }
     if (!loadVideoDetails) {
       dispatch(fetchVideoDetails(params.videoID))
-      setLoadVideoDetails(!loadVideoDetails)
     }
-  }, [dispatch, params.videoID, video, isSubscribing, loadVideoDetails, setLoadVideoDetails]);
+  }, [dispatch, params.videoID, video, isSubscribing, loadVideoDetails]);
 
   useEffect(() => {
     const handleOutSideClick = event => {
@@ -81,7 +80,7 @@ const WatchVideo = ({ loadVideoDetails, setLoadVideoDetails }) => {
       <div className='w-full lg:flex lg:px-10 lg:py-2'>
         <div className='w-full lg:w-3/4'>
           <div className='w-full bg-black rounded-md'>
-            <video onClick={viewIncreaseHandler}  controls className='w-full h-full rounded-md'>
+            <video onPlay={viewIncreaseHandler}  controls className='w-full h-full rounded-md'>
               <source src={video.video} type='video/mp4' />
             </video>
           </div>

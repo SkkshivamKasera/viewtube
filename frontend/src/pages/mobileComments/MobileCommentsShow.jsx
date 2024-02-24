@@ -20,7 +20,7 @@ const MobileCommentsShow = () => {
                                     key={comment._id}
                                     videoID={video._id}
                                     commentID={comment._id}
-                                    userID={comment.user && comment.user._d}
+                                    userID={comment.user && comment.user._id}
                                     avatar={comment.user && comment.user.avatar}
                                     username={comment.user && comment.user.username}
                                     createdAt={comment.createdAt}

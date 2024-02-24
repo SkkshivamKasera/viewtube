@@ -5,7 +5,7 @@ import { BiLike, BiSolidLike } from 'react-icons/bi'
 import { CommentInput } from "../../components"
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6'
 import { likeToComment, likeToReplyedCommet } from '../../redux/action/commentAction'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const CommentShowOnMobile = ({
     videoID,
@@ -23,6 +23,7 @@ const CommentShowOnMobile = ({
     const [isRepliesOpen, setIsRepliesOpen] = useState(false)
 
     const dispatch = useDispatch()
+    const { user } = useSelector(state => state.user)
 
     const toggleRepliesInput = (replyID) => {
         setOpenRepliesInput(prevState => ({
@@ -60,7 +61,7 @@ const CommentShowOnMobile = ({
                     <div className='flex items-center'>
                         <span className='flex items-center'>
                             {
-                                (likes && likes.length > 0 && likes.find((object) => object === userID)) ? (
+                                (user && likes && likes.length > 0 && likes.find((object) => object === user._id)) ? (
                                     <BiSolidLike
                                         className='mr-2 cursor-pointer'
                                         onClick={likeToCommentHandler}
@@ -123,7 +124,7 @@ const CommentShowOnMobile = ({
                             <div className='flex items-center'>
                                 <span className='flex items-center'>
                                     {
-                                        (replyComment.likes && replyComment.likes.length > 0 && replyComment.likes.find((object) => object === userID)) ? (
+                                        (user && replyComment.likes && replyComment.likes.length > 0 && replyComment.likes.find((object) => object === user._id)) ? (
                                             <BiSolidLike
                                                 className='mr-2 cursor-pointer'
                                                 onClick={()=>likeToReplyedCommentHandler(replyComment._id)}

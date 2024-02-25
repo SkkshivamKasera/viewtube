@@ -92,7 +92,7 @@ const CommentShow = ({
                         </div>
                         {
                             openInput &&
-                            <CommentInput commentID={commentID} commentTo={"REPLY_COMMENT"} />
+                            <CommentInput videoID={videoID} commentID={commentID} commentTo={"REPLY_COMMENT"} />
                         }
                         {
                             replies.length > 0 &&
@@ -155,6 +155,7 @@ const CommentShow = ({
                                 {
                                     openReplyInput &&
                                     <CommentInput
+                                        videoID={videoID}
                                         commentID={commentID}
                                         replyedCommentID={reply._id}
                                         commentTo={"REPLYED_COMMENT"}

@@ -22,7 +22,7 @@ const SubscriptionCard = ({ channelID, avatar, channelName, subscribers }) => {
                 <div className='w-full flex flex-col items-center'>
                     <div className='w-20 h-20'>
                         <Link to={`/channel/user/${channelID}`} className='w-full h-full'>
-                            <img src={avatar} alt='channel logo' className='w-full h-full rounded-full object-cover' />
+                            <img src={avatar} alt='channel logo' className='w-full h-full rounded-full origin-center object-cover' />
                         </Link>
                     </div>
                     <div className='my-1'>

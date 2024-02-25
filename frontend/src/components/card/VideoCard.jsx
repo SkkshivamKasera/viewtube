@@ -34,13 +34,13 @@ const VideoCard = ({
         <div className='w-[90%] h-96 shadow-lg rounded-sm cursor-pointer mt-3'>
             <div className='w-full h-60'>
                 <Link to={`/video/watch/${videoID}`} className='w-full h-full'>
-                    <img src={thumbnail} alt={`${videoID}`} className='w-full h-full rounded-sm object-cover' />
+                    <img src={thumbnail} alt={`${videoID}`} className='w-full h-full rounded-sm origin-center object-cover' />
                 </Link>
             </div>
             <div className='flex mt-2 px-1'>
                 <div className='h-full'>
                     <Link to={`/channel/user/${channelID}`} className='block w-10 h-10'>
-                        <img src={channel_logo} alt={`${channelID}`} className='w-full h-full rounded-full object-cover' />
+                        <img src={channel_logo} alt={`${channelID}`} className='w-full h-full rounded-full origin-center object-cover' />
                     </Link>
                 </div>
                 <div className='flex flex-col w-full px-2'>

@@ -30,7 +30,7 @@ const MyProfile = () => {
             <div className='w-full lg:w-[80%] py-2'>
                 <div className='lg:max-h-64 mx-10 flex flex-col lg:flex-row items-center'>
                     <Link to={""} className='w-[200px] h-[200px] flex items-center justify-center lg:w-80 lg:h-60 rounded-[100%]'>
-                        <img src={user && user.avatar} alt='profile pic' className='h-full rounded-[100%]' />
+                        <img src={user && user.avatar} alt='profile pic' className='h-full rounded-[100%] object-cover origin-center' />
                     </Link>
                     <div className='flex flex-col justify-between w-full items-center lg:items-start my-2 lg:mx-4'>
                         <div className='uppercase text-xl lg:text-3xl font-semibold my-2'>{user ? user.channelName : "example channel name"}</div>

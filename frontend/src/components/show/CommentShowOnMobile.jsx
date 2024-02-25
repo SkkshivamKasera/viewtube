@@ -143,6 +143,7 @@ const CommentShowOnMobile = ({
                             {
                                 openRepliesInput[replyComment._id] &&
                                 <CommentInput
+                                    videoID={videoID}
                                     commentID={commentID}
                                     replyedCommentID={replyComment._id}
                                     commentTo={"REPLYED_COMMENT"}

@@ -57,8 +57,8 @@ Router.route("/video/:videoID/watch/later/remove").get(isAuthentication, removeF
 Router.route("/video/:videoID/download").get(videoDownload)
 
 Router.route("/video/:videoID/comment/add").post(isAuthentication, addComment)
-Router.route("/video/comment/:commentID/reply").post(isAuthentication, replyToComment)
-Router.route("/video/comment/:commentID/replyed/:replyedCommentID/reply").post(isAuthentication, replyToReplyedComment)
+Router.route("/video/:videoID/comment/:commentID/reply").post(isAuthentication, replyToComment)
+Router.route("/video/:videoID/comment/:commentID/replyed/:replyedCommentID/reply").post(isAuthentication, replyToReplyedComment)
 Router.route("/video/:videoID/comment/:commentID/like").get(isAuthentication, likeToCommet)
 Router.route("/video/:videoID/comment/:commentID/reply/:replyedCommentID/like").get(isAuthentication, likeToReplyedCommet)
 

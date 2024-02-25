@@ -24,11 +24,11 @@ const CommentInput = ({ videoID, commentID, replyedCommentID, commentTo }) => {
         break;
 
       case 'REPLY_COMMENT':
-        dispatch(replyToComment(commentID, commentText));
+        dispatch(replyToComment(videoID, commentID, commentText));
         break;
 
       case 'REPLYED_COMMENT':
-        dispatch(replyToReplyesComment(commentID, replyedCommentID, commentText));
+        dispatch(replyToReplyesComment(videoID, commentID, replyedCommentID, commentText));
         break;
 
       default:

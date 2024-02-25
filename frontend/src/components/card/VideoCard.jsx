@@ -34,7 +34,7 @@ const VideoCard = ({
         <div className='w-[90%] h-96 shadow-lg rounded-sm cursor-pointer mt-3'>
             <div className='w-full h-60'>
                 <Link to={`/video/watch/${videoID}`} className='w-full h-full'>
-                    <img src={thumbnail} alt={`${videoID}`} className='w-full h-full rounded-sm' />
+                    <img src={thumbnail} alt={`${videoID}`} className='w-full h-full unded-sm' />
                 </Link>
             </div>
             <div className='flex mt-2 px-1'>

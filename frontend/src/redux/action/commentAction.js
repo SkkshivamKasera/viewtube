@@ -14,10 +14,10 @@ export const addComment = (videoID, commentText) => async (dispatch) => {
     }
 }
 
-export const replyToComment = (commentID, commentText) => async (dispatch) => {
+export const replyToComment = (videoID, commentID, commentText) => async (dispatch) => {
     try{
         dispatch({ type: "ADD_COMMENT_REQUEST" })
-        const { data } = await axios.post(`${REQUEST_URL}/video/comment/${commentID}/reply`, {
+        const { data } = await axios.post(`${REQUEST_URL}/video/${videoID}/comment/${commentID}/reply`, {
             commentText
         }, POST_CONFIG)
         dispatch({ type: "ADD_COMMENT_SUCCESS", payload: data })
@@ -26,10 +26,10 @@ export const replyToComment = (commentID, commentText) => async (dispatch) => {
     }
 }
 
-export const replyToReplyesComment = (commentID, replyedCommentID, commentText) => async (dispatch) => {
+export const replyToReplyesComment = (videoID, commentID, replyedCommentID, commentText) => async (dispatch) => {
     try{
         dispatch({ type: "ADD_COMMENT_REQUEST" })
-        const { data } = await axios.post(`${REQUEST_URL}/video/comment/${commentID}/replyed/${replyedCommentID}/reply`, {
+        const { data } = await axios.post(`${REQUEST_URL}/video/${videoID}/comment/${commentID}/replyed/${replyedCommentID}/reply`, {
             commentText
         }, POST_CONFIG)
         dispatch({ type: "ADD_COMMENT_SUCCESS", payload: data })

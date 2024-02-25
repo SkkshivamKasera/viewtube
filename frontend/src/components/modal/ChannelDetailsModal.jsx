@@ -36,23 +36,23 @@ const ChannelDetailsModal = ({ buttonRef, modalOpen, setModalOpen, user }) => {
     return (
         user && (
             <div className='fixed left-0 top-0 w-full h-full bg-black bg-opacity-50 z-20 flex items-center justify-center'>
-                <div ref={modalRef} className='bg-white w-full lg:w-1/2 rounded-lg shadow shadow-gray-500'>
+                <div ref={modalRef} className='bg-white w-11/12 lg:w-1/2 rounded-lg shadow shadow-gray-500'>
                     <div className='p-4 flex items-center justify-between'>
                         <h1 className='text-2xl text-black font-bold capitalize'>About</h1>
                         <span onClick={() => setModalOpen(!modalOpen)} className='w-10 h-10 rounded-full active:bg-gray-200 flex items-center justify-center cursor-pointer'>
                             <FaX />
                         </span>
                     </div>
-                    <div>
+                    <div className='w-full'>
                         <h2 className='px-4 text-2xl text-black font-bold capitalize'>Channel Details</h2>
-                        <ul>
+                        <ul className='w-full'>
                             <li className='flex items-center px-4 my-4'>
                                 <FiPhone />
                                 <span className='mx-2'>{user.email}</span>
                             </li>
-                            <li className='flex items-center px-4 my-4'>
+                            <li className='flex items-center px-4 my-4 w-full'>
                                 <CiGlobe />
-                                <span className='mx-2'>{`${FRONTEND_URL}/channel/user/${user._id}`}</span>
+                                <span className='mx-2 overflow-auto'>{`${FRONTEND_URL}/channel/user/${user._id}`}</span>
                             </li>
                             <li className='flex items-center px-4 capitalize my-4'>
                                 <RiUserVoiceLine />

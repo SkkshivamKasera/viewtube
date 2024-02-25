@@ -30,20 +30,28 @@ export const addComment = async (req, res) => {
 
 export const replyToComment = async (req, res) => {
     try{
-        const { commentID } = req.params
+        const { videoID, commentID } = req.params
+        console.log(videoID, commentID)
         const comment = await Comment.findById(commentID)
-        if(!comment){
-            return sendError(res, 404, "comment not found")
+        let video = await Video.findById(videoID)
+        if(!comment || !video){
+            return sendError(res, 404, "video or comment not found")
         }
         const { commentText } = req.body
         const user = req.user
         comment.replies?.push({
             comment: commentText,
             user: user._id,
-            target_user: comment.user
+            target_user: comment.user,
+            createdAt: new Date(Date.now())
         })
         await comment.save()
-        return res.status(200).json({ success: true, message: "comment successfully" })
+        video = await video.populate("user likes comments")
+        video = await video.populate("user.videos")
+        video = await video.populate("comments.user")
+        video = await video.populate("user.videos.user")
+        video = await video.populate("comments.replies.user comments.replies.target_user")
+        return res.status(200).json({ success: true, message: "comment successfully", video })
     }catch(error){
         return sendError(res, 500, error.message)
     }
@@ -51,9 +59,10 @@ export const replyToComment = async (req, res) => {
 
 export const replyToReplyedComment = async (req, res) => {
     try{
-        const { commentID, replyedCommentID } = req.params
+        const { videoID, commentID, replyedCommentID } = req.params
         const comment = await Comment.findById(commentID)
-        if(!comment){
+        let video = await Video.findById(videoID)
+        if(!comment || !video){
             return sendError(res, 404, "comment not found")
         }
         const replyedComment = comment.replies?.find((replyComment) => replyComment._id?.toString() === replyedCommentID);
@@ -65,10 +74,16 @@ export const replyToReplyedComment = async (req, res) => {
         comment.replies?.push({
             comment: commentText,
             user: user._id,
-            target_user: replyedComment?.user
+            target_user: replyedComment?.user,
+            createdAt: new Date(Date.now())
         })
         await comment.save()
-        return res.status(200).json({ success: true, message: "comment successfully" })
+        video = await video.populate("user likes comments")
+        video = await video.populate("user.videos")
+        video = await video.populate("comments.user")
+        video = await video.populate("user.videos.user")
+        video = await video.populate("comments.replies.user comments.replies.target_user")
+        return res.status(200).json({ success: true, message: "comment successfully", video })
     }catch(error){
         return sendError(res, 500, error.message)
     }

@@ -22,7 +22,7 @@ const EditVideosCard = ({ videoID, thumbnail, title, desc, createdAt, updatedAt 
             <div className='w-full mt-6'>
                 <div className='w-full p-2 flex flex-col lg:flex-row items-center shadow shadow-gray-700 rounded-lg'>
                     <div className='h-52 w-full lg:w-[30%]'>
-                        <img src={thumbnail} alt={videoID} className='w-full h-full rounded-md cursor-pointer' />
+                        <img src={thumbnail} alt={videoID} className='w-full h-full rounded-md cursor-pointer object-cover' />
                     </div>
                     <div className='h-full w-full flex lg:flex-col lg:w-[70%]'>
                         <div>

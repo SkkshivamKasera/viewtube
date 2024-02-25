@@ -25,7 +25,7 @@ const HorizontalScrollVideoCard = ({ videoID, thumbnail, title, views, createdAt
             <div>
                 <div className='w-80 h-40'>
                     <Link to={`/video/watch/${videoID}`} className='w-full h-full'>
-                        <img src={thumbnail} alt='video thumbnail' className='w-full h-full rounded-md'/>
+                        <img src={thumbnail} alt='video thumbnail' className='w-full h-full rounded-md object-cover'/>
                     </Link>
                 </div>
                 <div className='w-full flex justify-between mt-2'>
